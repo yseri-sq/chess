@@ -6,9 +6,9 @@ async def main(page : ft.Page):
     page.window.height = 650
     page.window.minimizable = False
     page.window.maximizable = False
-    # page.window.always_on_top = True
+    page.window.always_on_top = True
 
-    await page.window.center()
+    # await page.window.center()
 
 
 
@@ -21,9 +21,20 @@ async def main(page : ft.Page):
     
 
     def show_board():
-        cell = ft.Container(width=35, height=35, bgcolor=ft.Colors.WHITE)
-        for i in range(64):
-            board_view.controls.append(cell)
+        for row in range(8):
+            for col in range(8):
+                color = ft.Colors.WHITE_60 if (row + col) % 2 == 0 else ft.Colors.BROWN
+            
+                board_view.controls.append(
+                    ft.Container(
+                        content=ft.Text(f""),
+                        width=60,
+                        height=60,
+                        bgcolor=color,
+                        alignment=ft.Alignment.CENTER
+                    )
+                )
+            
             
     show_board()
 
