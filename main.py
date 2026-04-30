@@ -8,7 +8,7 @@ async def main(page : ft.Page):
     page.window.maximizable = False
     page.window.always_on_top = True
 
-    # await page.window.center()
+    await page.window.center()
 
 
 
